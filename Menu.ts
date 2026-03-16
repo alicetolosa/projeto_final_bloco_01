@@ -90,7 +90,7 @@ export function main (){
                     let produtoAtualizado: Batom = new Batom (1, "BATOM-SUPERMATTE", 40.90, 25, "Azul");
                     produto.atualizar(produtoAtualizado);
  
-                    
+
                     produto.listarTodas();
 
                     keyPress()
@@ -111,6 +111,7 @@ export function main (){
                 console.log("\n\nSair\n\n");
 
 
+                    process.exit(0);
                     keyPress()
                     break;
             default:
