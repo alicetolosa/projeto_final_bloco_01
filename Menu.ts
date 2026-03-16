@@ -1,8 +1,25 @@
 import readlinesync = require ("readline-sync"); //importação 
+import { Produto } from "./src/model/Produto";
+import { Batom} from "./src/model/Batom";
+import { Blush } from "./src/model/Blush";
 
 export function main (){
     
     let opcao : number;
+    
+    /*const produto: Produto = new Produto (1, "Batom", 22, 11)
+    produto.visualizar();*/
+
+    // Objeto da Classe
+    const batom: Batom = new Batom (1, "Batom", 22, 11, "Vermelho")
+    batom.visualizar();
+
+    // Objeto da Classe
+    const blush: Blush = new Blush (1, "Blush", 22, 11, "Creme")
+    blush.visualizar();
+
+    
+
 
     while (true){
 
@@ -33,30 +50,38 @@ export function main (){
             case 1:
                 console.log("\n\nCadastrar Produto\n\n");
 
+                    keyPress()
                     break;
             case 2:
                 console.log("\n\nListar todos os Produtos\n\n");
 
+                    keyPress()
                     break;
             case 3:
                 console.log("\n\nBuscar Produto\n\n");
 
+                    keyPress()
                     break;
             case 4:
                 console.log("\n\nAtualizar Produto\n\n");
 
+                    keyPress()
                     break;
             case 5:
                 console.log("\n\nApagar Produto\n\n");
 
+                    keyPress()
                     break;
             case 6:
                 console.log("\n\nSair\n\n");
 
+
+                    keyPress()
                     break;
             default:
                 console.log("\nOpção Inválida!\n");
 
+                keyPress()
                 break;
         }
 
@@ -72,6 +97,12 @@ export function sobre(): void {
     console.log("Generation Brasil - aliceoliveira81@outlook.com");
     console.log("Github : https://github.com/alicetolosa");
     console.log("*****************************************************");
+}
+
+function keyPress(): void {
+    console.log("");
+    console.log("\nPressione enter para continuar...");
+    readlinesync.prompt();
 }
 
 main();
