@@ -2,10 +2,16 @@ import readlinesync = require ("readline-sync"); //importação
 import { Produto } from "./src/model/Produto";
 import { Batom} from "./src/model/Batom";
 import { Blush } from "./src/model/Blush";
+import { ProdutoController } from "./src/controller/ProdutoController";
 
 export function main (){
     
-    let opcao : number;
+    let produto : ProdutoController = new ProdutoController ();
+
+
+    let opcao, id, preco, estoque :number;
+    let nome, cor, tipo: string;
+    const tiposProdutos = ['Batom', 'Blush'];
     
     /*const produto: Produto = new Produto (1, "Batom", 22, 11)
     produto.visualizar();*/
@@ -49,26 +55,55 @@ export function main (){
         switch (opcao) {
             case 1:
                 console.log("\n\nCadastrar Produto\n\n");
+ 
+                
+                    let p1: Batom = new Batom(1, "Batom", 19.99, 20, "Vermelho-Perigo");
+                    produto.cadastrar(p1);
+
+                    let p2: Blush = new Blush(2, "Blush", 39.99, 10, "Creme");
+                    produto.cadastrar(p2);
+ 
+
+                    produto.listarTodas();
+ 
 
                     keyPress()
                     break;
             case 2:
                 console.log("\n\nListar todos os Produtos\n\n");
+                    produto.listarTodas();
 
                     keyPress()
                     break;
             case 3:
                 console.log("\n\nBuscar Produto\n\n");
+                console.log("Digite o ID do produto: ");
+                id = readlinesync.questionInt("");
+ 
+                produto.procurarPorId(id);
 
                     keyPress()
                     break;
             case 4:
                 console.log("\n\nAtualizar Produto\n\n");
 
+                    let produtoAtualizado: Batom = new Batom (1, "BATOM-SUPERMATTE", 40.90, 25, "Azul");
+                    produto.atualizar(produtoAtualizado);
+ 
+                    
+                    produto.listarTodas();
+
                     keyPress()
                     break;
             case 5:
                 console.log("\n\nApagar Produto\n\n");
+
+                    console.log("Digite o ID do produto: ");
+                    id = readlinesync.questionInt("");
+ 
+                    produto.deletar(id);
+ 
+                    produto.listarTodas();
 
                     keyPress()
                     break;

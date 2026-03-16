@@ -69,6 +69,6 @@ export abstract class Produto {
     }
 
 
-    //id, nome, preço, estoque
-
+    
+    
 }
